@@ -12,6 +12,9 @@
 		526060CE224CC25F004152BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526060CC224CC25F004152BF /* Main.storyboard */; };
 		526060D0224CC262004152BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526060CF224CC262004152BF /* Assets.xcassets */; };
 		526060D3224CC262004152BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526060D1224CC262004152BF /* LaunchScreen.storyboard */; };
+		526060DD224CC2C2004152BF /* BWCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526060DA224CC2C2004152BF /* BWCycleScrollView.swift */; };
+		526060DE224CC2C2004152BF /* BWCycleScrollViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526060DB224CC2C2004152BF /* BWCycleScrollViewDataSource.swift */; };
+		526060DF224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526060DC224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		526060CF224CC262004152BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		526060D2224CC262004152BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		526060D4224CC262004152BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		526060DA224CC2C2004152BF /* BWCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWCycleScrollView.swift; sourceTree = "<group>"; };
+		526060DB224CC2C2004152BF /* BWCycleScrollViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWCycleScrollViewDataSource.swift; sourceTree = "<group>"; };
+		526060DC224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWCycleScrollVIewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 			children = (
 				526060C8224CC25F004152BF /* AppDelegate.swift */,
 				526060CA224CC25F004152BF /* ViewController.swift */,
+				526060DA224CC2C2004152BF /* BWCycleScrollView.swift */,
+				526060DB224CC2C2004152BF /* BWCycleScrollViewDataSource.swift */,
+				526060DC224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift */,
 				526060CC224CC25F004152BF /* Main.storyboard */,
 				526060CF224CC262004152BF /* Assets.xcassets */,
 				526060D1224CC262004152BF /* LaunchScreen.storyboard */,
@@ -135,7 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526060DF224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift in Sources */,
+				526060DD224CC2C2004152BF /* BWCycleScrollView.swift in Sources */,
 				526060CB224CC25F004152BF /* ViewController.swift in Sources */,
+				526060DE224CC2C2004152BF /* BWCycleScrollViewDataSource.swift in Sources */,
 				526060C9224CC25F004152BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
