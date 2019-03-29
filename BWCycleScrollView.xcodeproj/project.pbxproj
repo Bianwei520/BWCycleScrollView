@@ -14,7 +14,6 @@
 		526060D3224CC262004152BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526060D1224CC262004152BF /* LaunchScreen.storyboard */; };
 		526060DD224CC2C2004152BF /* BWCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526060DA224CC2C2004152BF /* BWCycleScrollView.swift */; };
 		526060DE224CC2C2004152BF /* BWCycleScrollViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526060DB224CC2C2004152BF /* BWCycleScrollViewDataSource.swift */; };
-		526060DF224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526060DC224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift */; };
 		52606102224CC651004152BF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526060E6224CC619004152BF /* SnapKit.framework */; };
 		52606109224CCC6D004152BF /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526060F4224CC62C004152BF /* Kingfisher.framework */; };
 		5260610A224CCC6D004152BF /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 526060F4224CC62C004152BF /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -117,7 +116,6 @@
 		526060D4224CC262004152BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		526060DA224CC2C2004152BF /* BWCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWCycleScrollView.swift; sourceTree = "<group>"; };
 		526060DB224CC2C2004152BF /* BWCycleScrollViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWCycleScrollViewDataSource.swift; sourceTree = "<group>"; };
-		526060DC224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWCycleScrollVIewDelegate.swift; sourceTree = "<group>"; };
 		526060E0224CC619004152BF /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = ../SnapKit/SnapKit.xcodeproj; sourceTree = "<group>"; };
 		526060E9224CC62C004152BF /* Kingfisher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kingfisher.xcodeproj; path = ../Kingfisher/Kingfisher.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,7 +159,6 @@
 				526060CA224CC25F004152BF /* ViewController.swift */,
 				526060DA224CC2C2004152BF /* BWCycleScrollView.swift */,
 				526060DB224CC2C2004152BF /* BWCycleScrollViewDataSource.swift */,
-				526060DC224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift */,
 				526060CC224CC25F004152BF /* Main.storyboard */,
 				526060CF224CC262004152BF /* Assets.xcassets */,
 				526060D1224CC262004152BF /* LaunchScreen.storyboard */,
@@ -349,7 +346,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				526060DF224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift in Sources */,
 				526060DD224CC2C2004152BF /* BWCycleScrollView.swift in Sources */,
 				526060CB224CC25F004152BF /* ViewController.swift in Sources */,
 				526060DE224CC2C2004152BF /* BWCycleScrollViewDataSource.swift in Sources */,

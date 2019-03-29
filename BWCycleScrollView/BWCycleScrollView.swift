@@ -40,7 +40,7 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
     }
     
     // 设置数据源
-    func setupDataSource(type:DataType,
+    public func setupDataSource(type:DataType,
                          imgUrlArray imgUrl:[String],
                          hasTitle:Bool,
                          titleArray title:[String]?) {
@@ -48,9 +48,11 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
         if hasTitle {
             titleArray = title
         }
+        
+        setupScrollView()
     }
     
-    func setupScrollView() {
+    private func setupScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         scrollView.contentSize = CGSize(width: width*3, height: 0)
         scrollView.contentOffset = CGPoint(x: width, y: 0)
@@ -79,7 +81,7 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
         configureAutoScrollTimer()
     }
     
-    func configureImageViews() {
+    private func configureImageViews() {
         leftImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         middleImageView = UIImageView(frame: CGRect(x: width, y: 0, width: width, height: height))
         rightImageView = UIImageView(frame: CGRect(x: 2*width, y: 0, width: width, height: height))
@@ -136,21 +138,18 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
         scrollView.addSubview(rightImageView)
     }
     
-    func setTitleLabel() {
-        if currentPage == 0 {
-            if titleArray != nil && !titleArray!.isEmpty {
+    private func setTitleLabel() {
+        if titleArray != nil && !titleArray!.isEmpty {
+            switch currentPage {
+            case 0:
                 leftTitleLabel.text = titleArray!.last
                 middleTitleLabel.text = titleArray![0]
                 rightTitleLabel.text = titleArray![1]
-            }
-        } else if currentPage == imgDataArray.imageArray.count - 1 {
-            if titleArray != nil && !titleArray!.isEmpty {
+            case imgDataArray.imageArray.count - 1:
                 leftTitleLabel.text = titleArray![currentPage-1]
                 middleTitleLabel.text = titleArray!.last
                 rightTitleLabel.text = titleArray!.first
-            }
-        } else {
-            if titleArray != nil && !titleArray!.isEmpty {
+            default:
                 leftTitleLabel.text = titleArray![currentPage-1]
                 middleTitleLabel.text = titleArray![currentPage]
                 rightTitleLabel.text = titleArray![currentPage+1]
@@ -158,7 +157,7 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
         }
     }
     
-    func setImageView() {
+    private func setImageView() {
         //scrollView is displaying the first data in imgDataArray
         if currentPage == 0 {
             switch imgDataArray.imageArray.last! {
@@ -230,7 +229,7 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
     }
     
     //设置自动滚动计时器
-    func configureAutoScrollTimer() {
+    private func configureAutoScrollTimer() {
         //设置一个定时器，每6秒钟滚动一次
         autoScrollTimer = Timer.scheduledTimer(timeInterval: 6, target: self,
                                                selector: #selector(letItScroll),
