@@ -15,7 +15,97 @@
 		526060DD224CC2C2004152BF /* BWCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526060DA224CC2C2004152BF /* BWCycleScrollView.swift */; };
 		526060DE224CC2C2004152BF /* BWCycleScrollViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526060DB224CC2C2004152BF /* BWCycleScrollViewDataSource.swift */; };
 		526060DF224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526060DC224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift */; };
+		52606102224CC651004152BF /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526060E6224CC619004152BF /* SnapKit.framework */; };
+		52606109224CCC6D004152BF /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526060F4224CC62C004152BF /* Kingfisher.framework */; };
+		5260610A224CCC6D004152BF /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 526060F4224CC62C004152BF /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		526060E5224CC619004152BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526060E0224CC619004152BF /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9D819CC627D0083B827;
+			remoteInfo = SnapKit;
+		};
+		526060E7224CC619004152BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526060E0224CC619004152BF /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9E219CC627E0083B827;
+			remoteInfo = "SnapKit Tests";
+		};
+		526060F3224CC62C004152BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526060E9224CC62C004152BF /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1ED2D351AD2D09F00CFC3EB;
+			remoteInfo = "Kingfisher-iOS";
+		};
+		526060F5224CC62C004152BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526060E9224CC62C004152BF /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D13F49D61BEDA67C00CE335D;
+			remoteInfo = "Kingfisher-tvOS";
+		};
+		526060F7224CC62C004152BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526060E9224CC62C004152BF /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4B2944481C3D01B20088C3E7;
+			remoteInfo = "Kingfisher-macOS";
+		};
+		526060F9224CC62C004152BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526060E9224CC62C004152BF /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D16799EB1C4E74460020FD12;
+			remoteInfo = "Kingfisher-watchOS";
+		};
+		526060FB224CC62C004152BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526060E9224CC62C004152BF /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1ED2D3F1AD2D09F00CFC3EB;
+			remoteInfo = KingfisherTests;
+		};
+		526060FD224CC62C004152BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526060E9224CC62C004152BF /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4B37667F1C478F940001443F;
+			remoteInfo = "KingfisherTests-tvOS";
+		};
+		526060FF224CC62C004152BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526060E9224CC62C004152BF /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D10EC2311C3D632300A4211C;
+			remoteInfo = "KingfisherTests-macOS";
+		};
+		5260610B224CCC6D004152BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526060E9224CC62C004152BF /* Kingfisher.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D1ED2D341AD2D09F00CFC3EB;
+			remoteInfo = "Kingfisher-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5260610D224CCC6D004152BF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5260610A224CCC6D004152BF /* Kingfisher.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		526060C5224CC25F004152BF /* BWCycleScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BWCycleScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +118,8 @@
 		526060DA224CC2C2004152BF /* BWCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWCycleScrollView.swift; sourceTree = "<group>"; };
 		526060DB224CC2C2004152BF /* BWCycleScrollViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWCycleScrollViewDataSource.swift; sourceTree = "<group>"; };
 		526060DC224CC2C2004152BF /* BWCycleScrollVIewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWCycleScrollVIewDelegate.swift; sourceTree = "<group>"; };
+		526060E0224CC619004152BF /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = ../SnapKit/SnapKit.xcodeproj; sourceTree = "<group>"; };
+		526060E9224CC62C004152BF /* Kingfisher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kingfisher.xcodeproj; path = ../Kingfisher/Kingfisher.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52606109224CCC6D004152BF /* Kingfisher.framework in Frameworks */,
+				52606102224CC651004152BF /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,8 +138,11 @@
 		526060BC224CC25F004152BF = {
 			isa = PBXGroup;
 			children = (
+				526060E9224CC62C004152BF /* Kingfisher.xcodeproj */,
+				526060E0224CC619004152BF /* SnapKit.xcodeproj */,
 				526060C7224CC25F004152BF /* BWCycleScrollView */,
 				526060C6224CC25F004152BF /* Products */,
+				52606101224CC651004152BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +170,36 @@
 			path = BWCycleScrollView;
 			sourceTree = "<group>";
 		};
+		526060E1224CC619004152BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				526060E6224CC619004152BF /* SnapKit.framework */,
+				526060E8224CC619004152BF /* SnapKit Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		526060EA224CC62C004152BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				526060F4224CC62C004152BF /* Kingfisher.framework */,
+				526060F6224CC62C004152BF /* Kingfisher.framework */,
+				526060F8224CC62C004152BF /* Kingfisher.framework */,
+				526060FA224CC62C004152BF /* Kingfisher.framework */,
+				526060FC224CC62C004152BF /* KingfisherTests.xctest */,
+				526060FE224CC62C004152BF /* KingfisherTests-tvOS.xctest */,
+				52606100224CC62C004152BF /* KingfisherTests-macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52606101224CC651004152BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,10 +210,12 @@
 				526060C1224CC25F004152BF /* Sources */,
 				526060C2224CC25F004152BF /* Frameworks */,
 				526060C3224CC25F004152BF /* Resources */,
+				5260610D224CCC6D004152BF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5260610C224CCC6D004152BF /* PBXTargetDependency */,
 			);
 			name = BWCycleScrollView;
 			productName = BWCycleScrollView;
@@ -119,12 +248,88 @@
 			mainGroup = 526060BC224CC25F004152BF;
 			productRefGroup = 526060C6224CC25F004152BF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 526060EA224CC62C004152BF /* Products */;
+					ProjectRef = 526060E9224CC62C004152BF /* Kingfisher.xcodeproj */;
+				},
+				{
+					ProductGroup = 526060E1224CC619004152BF /* Products */;
+					ProjectRef = 526060E0224CC619004152BF /* SnapKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				526060C4224CC25F004152BF /* BWCycleScrollView */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		526060E6224CC619004152BF /* SnapKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnapKit.framework;
+			remoteRef = 526060E5224CC619004152BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		526060E8224CC619004152BF /* SnapKit Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SnapKit Tests.xctest";
+			remoteRef = 526060E7224CC619004152BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		526060F4224CC62C004152BF /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 526060F3224CC62C004152BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		526060F6224CC62C004152BF /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 526060F5224CC62C004152BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		526060F8224CC62C004152BF /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 526060F7224CC62C004152BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		526060FA224CC62C004152BF /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 526060F9224CC62C004152BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		526060FC224CC62C004152BF /* KingfisherTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = KingfisherTests.xctest;
+			remoteRef = 526060FB224CC62C004152BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		526060FE224CC62C004152BF /* KingfisherTests-tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "KingfisherTests-tvOS.xctest";
+			remoteRef = 526060FD224CC62C004152BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		52606100224CC62C004152BF /* KingfisherTests-macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "KingfisherTests-macOS.xctest";
+			remoteRef = 526060FF224CC62C004152BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		526060C3224CC25F004152BF /* Resources */ = {
@@ -153,6 +358,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5260610C224CCC6D004152BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Kingfisher-iOS";
+			targetProxy = 5260610B224CCC6D004152BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		526060CC224CC25F004152BF /* Main.storyboard */ = {
@@ -293,6 +506,7 @@
 		526060D8224CC262004152BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3338LF5X5R;
@@ -311,6 +525,7 @@
 		526060D9224CC262004152BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3338LF5X5R;

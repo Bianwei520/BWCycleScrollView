@@ -8,17 +8,17 @@
 
 import Foundation
 
-enum DataType:Int {
+public enum DataType:Int {
     case SERVER = 0
     case LOCAL = 1
 }
 
-enum DataSource {
+public enum DataSource {
     case SERVER(url:URL)
     case LOCAL(name:String)
 }
 
-struct ImageData {
+public struct ImageData {
     var imageType:DataType = .SERVER
     var imageArray:[DataSource] = [DataSource]()
     
@@ -38,28 +38,6 @@ struct ImageData {
             imageArray = array.map({ (name) -> DataSource in
                 return DataSource.LOCAL(name: name)
             })
-        }
-    }
-}
-
-struct StringData {
-    var strType:DataType = .SERVER
-    var strArray:[DataSource] = [DataSource]()
-    
-    subscript (index:Int) -> DataSource {
-        return strArray[index]
-    }
-    
-    init(type:DataType, array:[String]) {
-        strType = type
-        if strType == .SERVER {
-            strArray = array.map{ (urlStr) -> DataSource in
-                return DataSource.SERVER(url: URL(string: urlStr)!)
-            }
-        } else {
-            strArray = array.map{ (string) -> DataSource in
-                return DataSource.LOCAL(name: string)
-            }
         }
     }
 }

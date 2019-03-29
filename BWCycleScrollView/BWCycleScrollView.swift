@@ -8,29 +8,52 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 public class BWCycleScrollView: UIView, UIScrollViewDelegate {
-
-    let KScreenWidth:CGFloat = 100
-    let scrollHeight:CGFloat = 220
-    var scrollView:UIScrollView!
-    var pageControl:UIPageControl!
+    private let width:CGFloat
+    private let height:CGFloat
+    
+    private var scrollView:UIScrollView!
+    private var pageControl:UIPageControl!
     //定时器
-    var autoScrollTimer:Timer?
+    private var autoScrollTimer:Timer?
     //用于轮播的左中右三个image（不管几张图片都是这三个imageView交替使用）
-    var leftImageView , middleImageView , rightImageView : UIImageView!
-    var leftTitleLabel, middleTitleLabel, rightTitleLabel: UILabel!
+    private var leftImageView , middleImageView , rightImageView : UIImageView!
+    private var leftTitleLabel, middleTitleLabel, rightTitleLabel: UILabel!
     //dataSource
-    var imgDataArray:[ImageData] = [ImageData]()
-    var titleArray:[StringData] = [StringData]()
+    var imgDataArray:ImageData!
+    var titleArray:[String]?
     //index of current page
-    var currentPage:Int = 0
+    private var currentPage:Int = 0
     let default_image = UIImage(named: "Image_Preview")
     
-    func initScrollView() {
-        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: KScreenWidth, height: scrollHeight))
-        scrollView.contentSize = CGSize(width: KScreenWidth*3, height: 0)
-        scrollView.contentOffset = CGPoint(x: KScreenWidth, y: 0)
+    public init(frame:CGRect, scrollViewWidth width:CGFloat,
+                scrollViewHeight height:CGFloat) {
+        self.width = width
+        self.height = height
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // 设置数据源
+    func setupDataSource(type:DataType,
+                         imgUrlArray imgUrl:[String],
+                         hasTitle:Bool,
+                         titleArray title:[String]?) {
+        imgDataArray = ImageData(type: type, array: imgUrl)
+        if hasTitle {
+            titleArray = title
+        }
+    }
+    
+    func setupScrollView() {
+        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        scrollView.contentSize = CGSize(width: width*3, height: 0)
+        scrollView.contentOffset = CGPoint(x: width, y: 0)
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.scrollsToTop = false
@@ -40,7 +63,7 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
         
         pageControl = UIPageControl()
         pageControl.backgroundColor = UIColor.clear
-        pageControl.numberOfPages = imgDataArray.count
+        pageControl.numberOfPages = imgDataArray.imageArray.count
         pageControl.currentPage = self.currentPage
         
         self.addSubview(scrollView)
@@ -57,9 +80,9 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
     }
     
     func configureImageViews() {
-        leftImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: KScreenWidth, height: scrollHeight))
-        middleImageView = UIImageView(frame: CGRect(x: KScreenWidth, y: 0, width: KScreenWidth, height: scrollHeight))
-        rightImageView = UIImageView(frame: CGRect(x: 2*KScreenWidth, y: 0, width: KScreenWidth, height: scrollHeight))
+        leftImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        middleImageView = UIImageView(frame: CGRect(x: width, y: 0, width: width, height: height))
+        rightImageView = UIImageView(frame: CGRect(x: 2*width, y: 0, width: width, height: height))
         
         // configure titleLabel
         leftTitleLabel = UILabel()
@@ -104,7 +127,7 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
         middleImageView.clipsToBounds = true
         rightImageView.clipsToBounds = true
         
-        if !self.imgDataArray.isEmpty {
+        if !self.imgDataArray.imageArray.isEmpty {
             self.setImageView()
         }
         
@@ -113,32 +136,97 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
         scrollView.addSubview(rightImageView)
     }
     
+    func setTitleLabel() {
+        if currentPage == 0 {
+            if titleArray != nil && !titleArray!.isEmpty {
+                leftTitleLabel.text = titleArray!.last
+                middleTitleLabel.text = titleArray![0]
+                rightTitleLabel.text = titleArray![1]
+            }
+        } else if currentPage == imgDataArray.imageArray.count - 1 {
+            if titleArray != nil && !titleArray!.isEmpty {
+                leftTitleLabel.text = titleArray![currentPage-1]
+                middleTitleLabel.text = titleArray!.last
+                rightTitleLabel.text = titleArray!.first
+            }
+        } else {
+            if titleArray != nil && !titleArray!.isEmpty {
+                leftTitleLabel.text = titleArray![currentPage-1]
+                middleTitleLabel.text = titleArray![currentPage]
+                rightTitleLabel.text = titleArray![currentPage+1]
+            }
+        }
+    }
+    
     func setImageView() {
         //scrollView is displaying the first data in imgDataArray
         if currentPage == 0 {
-            leftImageView.sd_setImage(with: URL(string: imgDataArray.last!.imageUrl!), placeholderImage: default_image)
-            leftTitleLabel.text = imgDataArray.last!.title
-            middleImageView.sd_setImage(with: URL(string: imgDataArray.first!.imageUrl!), placeholderImage: default_image)
-            middleTitleLabel.text = imgDataArray.first!.title
-            rightImageView.sd_setImage(with: URL(string: imgDataArray[1].imageUrl!), placeholderImage: default_image)
-            rightTitleLabel.text = imgDataArray[1].title
-        }else if currentPage == imgDataArray.count - 1 {
-            //last data in topStrories
-            leftImageView.sd_setImage(with: URL(string: imgDataArray[currentPage - 1].imageUrl!), placeholderImage: default_image)
-            leftTitleLabel.text = imgDataArray[currentPage - 1].title
-            middleImageView.sd_setImage(with: URL(string: imgDataArray.last!.imageUrl!), placeholderImage: default_image)
-            middleTitleLabel.text = imgDataArray.last!.title
-            rightImageView.sd_setImage(with: URL(string: imgDataArray.first!.imageUrl!), placeholderImage: default_image)
-            rightTitleLabel.text = imgDataArray.first!.title
-        }else {
+            switch imgDataArray.imageArray.last! {
+            case .LOCAL(let name):
+                leftImageView.image = UIImage(named: name)
+            case .SERVER(let url):
+                leftImageView.kf.setImage(with: url, placeholder: default_image)
+            }
+            
+            switch imgDataArray[0] {
+            case let .LOCAL(name):
+                middleImageView.image = UIImage(named: name)
+            case let .SERVER(url):
+                middleImageView.kf.setImage(with: url, placeholder: default_image)
+            }
+            
+            switch imgDataArray[1] {
+            case let .LOCAL(name):
+                rightImageView.image = UIImage(named: name)
+            case let .SERVER(url):
+                rightImageView.kf.setImage(with: url, placeholder: default_image)
+            }
+        }else if currentPage == imgDataArray.imageArray.count - 1 {
+            //last data
+            switch imgDataArray[currentPage - 1] {
+            case .LOCAL(let name):
+                leftImageView.image = UIImage(named: name)
+            case .SERVER(let url):
+                leftImageView.kf.setImage(with: url, placeholder: default_image)
+            }
+            
+            switch imgDataArray[currentPage] {
+            case .LOCAL(let name):
+                middleImageView.image = UIImage(named: name)
+            case .SERVER(let url):
+                middleImageView.kf.setImage(with: url, placeholder: default_image)
+            }
+            
+            switch imgDataArray[0] {
+            case let .LOCAL(name):
+                rightImageView.image = UIImage(named: name)
+            case let .SERVER(url):
+                rightImageView.kf.setImage(with: url, placeholder: default_image)
+            }
+        } else {
             //其他情况
-            leftImageView.sd_setImage(with: URL(string: imgDataArray[currentPage - 1].imageUrl!), placeholderImage: default_image)
-            leftTitleLabel.text = imgDataArray[currentPage - 1].title
-            middleImageView.sd_setImage(with: URL(string: imgDataArray[currentPage].imageUrl!), placeholderImage: default_image)
-            middleTitleLabel.text = imgDataArray[currentPage].title
-            rightImageView.sd_setImage(with: URL(string: imgDataArray[currentPage + 1].imageUrl!), placeholderImage: default_image)
-            rightTitleLabel.text = imgDataArray[currentPage + 1].title
+            switch imgDataArray[currentPage - 1] {
+            case .LOCAL(let name):
+                leftImageView.image = UIImage(named: name)
+            case .SERVER(let url):
+                leftImageView.kf.setImage(with: url, placeholder: default_image)
+            }
+            
+            switch imgDataArray[currentPage] {
+            case .LOCAL(let name):
+                middleImageView.image = UIImage(named: name)
+            case .SERVER(let url):
+                middleImageView.kf.setImage(with: url, placeholder: default_image)
+            }
+            
+            switch imgDataArray[currentPage + 1] {
+            case let .LOCAL(name):
+                rightImageView.image = UIImage(named: name)
+            case let .SERVER(url):
+                rightImageView.kf.setImage(with: url, placeholder: default_image)
+            }
         }
+        setTitleLabel()
     }
     
     //设置自动滚动计时器
@@ -151,24 +239,24 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
     
     //计时器时间一到，滚动一张图片
     @objc func letItScroll(){
-        let offset = CGPoint(x: 2*KScreenWidth, y: 0)
+        let offset = CGPoint(x: 2*width, y: 0)
         scrollView.setContentOffset(offset, animated: true)
     }
     
     //MARK: DELEGATE
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.x
         
-        if !imgDataArray.isEmpty {
+        if !imgDataArray.imageArray.isEmpty {
             
             //如果向左滑动（显示下一张）
-            if(offset >= KScreenWidth*2){
+            if(offset >= width*2){
                 //还原偏移量
-                scrollView.contentOffset = CGPoint(x: KScreenWidth, y: 0)
+                scrollView.contentOffset = CGPoint(x: width, y: 0)
                 //视图索引+1
                 currentPage += 1
                 
-                if currentPage == imgDataArray.count {
+                if currentPage == imgDataArray.imageArray.count {
                     currentPage = 0
                 }
             }
@@ -176,12 +264,12 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
             //如果向右滑动（显示上一张）
             if(offset <= 0){
                 //还原偏移量
-                scrollView.contentOffset = CGPoint(x: KScreenWidth, y: 0)
+                scrollView.contentOffset = CGPoint(x: width, y: 0)
                 //视图索引-1
                 currentPage -= 1
                 
                 if currentPage == -1 {
-                    currentPage = imgDataArray.count - 1
+                    currentPage = imgDataArray.imageArray.count - 1
                 }
             }
             
@@ -193,13 +281,13 @@ public class BWCycleScrollView: UIView, UIScrollViewDelegate {
     }
     
     //手动拖拽滚动开始
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         //使自动滚动计时器失效（防止用户手动移动图片的时候这边也在自动滚动）
         autoScrollTimer?.invalidate()
     }
     
     //手动拖拽滚动结束
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView,
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView,
                                   willDecelerate decelerate: Bool) {
         //重新启动自动滚动计时器
         configureAutoScrollTimer()
